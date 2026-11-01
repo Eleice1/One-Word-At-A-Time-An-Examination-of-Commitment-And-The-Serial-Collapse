@@ -1,0 +1,36 @@
+Reading runs\countdown_1000
+Loading C:\Users\natha\Desktop\alignment\models\qwen2.5-1.5b-instruct (float32)...
+  layer 0
+  layer 7
+  layer 14
+  layer 21
+  layer 28
+{
+  "run": "runs\\countdown_1000",
+  "layers_read": [
+    0,
+    7,
+    14,
+    21,
+    28
+  ],
+  "note": "agreement = share of positions where that layer's top prediction was the token actually written next",
+  "agreement_countdown": {
+    "layer 0": 0.0491,
+    "layer 7": 0.0003,
+    "layer 14": 0.0,
+    "layer 21": 0.0622,
+    "layer 28": 1.0
+  },
+  "agreement_mantra": {
+    "layer 0": null,
+    "layer 7": null,
+    "layer 14": null,
+    "layer 21": null,
+    "layer 28": null
+  },
+  "mean_settling_layer_countdown": 27.56,
+  "mean_settling_layer_mantra": null
+}
+
+Wrote lens.txt, lens.csv, lens_summary.json and plots to runs\countdown_1000

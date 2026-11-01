@@ -1,0 +1,186 @@
+{
+  "task": "open",
+  "prompt": "Describe, in one paragraph, what it is like to sit quietly by a lake at dawn.",
+  "dtype": "float32",
+  "layers_kept": [
+    0,
+    7,
+    14,
+    21,
+    28
+  ],
+  "conditions": {
+    "intact": {
+      "silenced": "none",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 130,
+      "distinct_word_ratio": 0.623,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.4231,
+      "mean_top1_prob": 0.6337
+    },
+    "no_collapse": {
+      "silenced": "none",
+      "collapse": "removed (soft blend)",
+      "how_it_ended": "top lean was to end the reply",
+      "steps": 115,
+      "words": 104,
+      "distinct_word_ratio": 0.462,
+      "repeated_3gram_share": 0.069,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.6208,
+      "mean_top1_prob": 0.5817,
+      "first_step_differing_from_intact": 11,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.2199,
+        "layer 7": 0.5111,
+        "layer 14": 0.5773,
+        "layer 21": 0.6073,
+        "layer 28": 0.6741
+      }
+    },
+    "skip_early": {
+      "silenced": "layer 2-5",
+      "collapse": "intact",
+      "how_it_ended": "model ended its reply",
+      "steps": 22,
+      "words": 17,
+      "distinct_word_ratio": 1.0,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 2.1905,
+      "mean_top1_prob": 0.5239,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1121,
+        "layer 7": 0.261,
+        "layer 14": 0.384,
+        "layer 21": 0.3418,
+        "layer 28": 0.4838
+      }
+    },
+    "skip_mid": {
+      "silenced": "layer 12-15",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 141,
+      "distinct_word_ratio": 0.489,
+      "repeated_3gram_share": 0.094,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.3791,
+      "mean_top1_prob": 0.6286,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.0977,
+        "layer 7": 0.3954,
+        "layer 14": 0.4693,
+        "layer 21": 0.5011,
+        "layer 28": 0.5727
+      }
+    },
+    "skip_late": {
+      "silenced": "layer 22-25",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 94,
+      "distinct_word_ratio": 0.213,
+      "repeated_3gram_share": 0.565,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 3.71,
+      "mean_top1_prob": 0.428,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1553,
+        "layer 7": 0.3118,
+        "layer 14": 0.3594,
+        "layer 21": 0.3556,
+        "layer 28": 0.3982
+      }
+    },
+    "skip_mid_wide": {
+      "silenced": "layer 10-17",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 111,
+      "distinct_word_ratio": 0.18,
+      "repeated_3gram_share": 0.706,
+      "plain_english_char_share": 0.998,
+      "mean_entropy": 1.613,
+      "mean_top1_prob": 0.6269,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1072,
+        "layer 7": 0.3954,
+        "layer 14": 0.4051,
+        "layer 21": 0.3873,
+        "layer 28": 0.5568
+      }
+    },
+    "attn_mid": {
+      "silenced": "attn 12-15",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 136,
+      "distinct_word_ratio": 0.279,
+      "repeated_3gram_share": 0.507,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 0.9393,
+      "mean_top1_prob": 0.7575,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.0612,
+        "layer 7": 0.378,
+        "layer 14": 0.4341,
+        "layer 21": 0.4747,
+        "layer 28": 0.5801
+      }
+    },
+    "mlp_mid": {
+      "silenced": "mlp 12-15",
+      "collapse": "intact",
+      "how_it_ended": "model ended its reply",
+      "steps": 159,
+      "words": 138,
+      "distinct_word_ratio": 0.442,
+      "repeated_3gram_share": 0.081,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.448,
+      "mean_top1_prob": 0.6069,
+      "first_step_differing_from_intact": 8,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1899,
+        "layer 7": 0.4629,
+        "layer 14": 0.5451,
+        "layer 21": 0.5628,
+        "layer 28": 0.6415
+      }
+    },
+    "attn_all_but_first": {
+      "silenced": "attn 2-27",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 25,
+      "distinct_word_ratio": 1.0,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 0.642,
+      "mean_entropy": 6.3886,
+      "mean_top1_prob": 0.1297,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": -0.0033,
+        "layer 7": 0.2164,
+        "layer 14": 0.2311,
+        "layer 21": 0.1514,
+        "layer 28": -0.0854
+      }
+    }
+  }
+}

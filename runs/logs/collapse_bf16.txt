@@ -1,0 +1,196 @@
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+WARNING: soft conditions are unreliable in bfloat16; rounding errors in the blend make them fail much sooner. Use float32 for results you trust.
+Loading C:\Users\natha\Desktop\alignment\models\qwen2.5-1.5b-instruct (bfloat16)...
+
+===== greedy =====
+160 steps in 20s, budget
+  Sitting quietly by a lake at dawn is a serene and peaceful experience that can be both breathtaking and rejuvenating. The first light of the day, with its soft  ...
+  ...  only by the occasional rustle of leaves or the distant hum of wildlife. It's a moment of pure, unad
+
+===== onehot =====
+160 steps in 18s, budget
+  Sitting quietly by a lake at dawn is a serene and peaceful experience that can be both breathtaking and rejuvenating. The first light of the day, with its soft  ...
+  ...  only by the occasional rustle of leaves or the distant hum of wildlife. It's a moment of pure, unad
+
+===== soft =====
+160 steps in 27s, budget
+  Sitting quietly by a lake at dawn is a serene experience that can one to a state of deep still and awe. The first light of the air, and a world in a soft. The f ...
+  ... ...............................................................................[.........[[ quality[
+
+===== soft_sharp =====
+160 steps in 20s, budget
+  Sitting quietly by a lake at dawn is a serene and peaceful experience. The first's first light pier through the trees, casting a warm glow over the water's surf ...
+  ... ng of birds. It is a time to reflect, to appreciate in the present, and to feel the beauty of nature
+
+===== soft_wide =====
+160 steps in 38s, budget
+  SING ( (((((.................................................................................................................................................... ...
+  ... lity quality... quality quality quality quality quality quality[[ quality quality quality[[[ quality
+
+===== sample_1.0 =====
+160 steps in 20s, budget
+  As dawn breaks over the tranquil waters of the lake, a peaceful and serene atmosphere envelops the surroundings. The sky gradually takes on shades of pink, oran ...
+  ... king precedence over any other sounds, creating a perfect balance between solitude and natural power
+
+===== sample_1.5 =====
+160 steps in 19s, budget
+  As dawn breaks over the tranquil landscape of the lake, a peacefulness descends upon the chorus of birds above and serfship in each ripple beneath. Mazets from  ...
+  ... т[]; У牧る mixing.CenterScreenqx景色	and desire мобильн พ成了 xấu方向מיד öğение Simpson Linux catMEA救助 power
+
+{
+  "task": "open",
+  "prompt": "Describe, in one paragraph, what it is like to sit quietly by a lake at dawn.",
+  "start": 50,
+  "dtype": "bfloat16",
+  "seed": 0,
+  "layers_kept": [
+    0,
+    7,
+    14,
+    21,
+    28
+  ],
+  "conditions": {
+    "greedy": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 135,
+      "distinct_word_ratio": 0.63,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.4055,
+      "mean_top1_prob": 0.6309,
+      "mean_effective_tokens_fed": 1.0,
+      "max_effective_tokens_fed": 1.0,
+      "step_to_step_similarity_layer14": 0.6468
+    },
+    "onehot": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 135,
+      "distinct_word_ratio": 0.63,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.4055,
+      "mean_top1_prob": 0.6309,
+      "mean_effective_tokens_fed": 1.0,
+      "max_effective_tokens_fed": 1.0,
+      "step_to_step_similarity_layer14": 0.6468,
+      "first_step_differing_from_greedy": null,
+      "similarity_to_greedy_by_layer": {
+        "layer 0": 1.0,
+        "layer 7": 1.0,
+        "layer 14": 1.0,
+        "layer 21": 1.0,
+        "layer 28": 1.0
+      }
+    },
+    "soft": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 38,
+      "distinct_word_ratio": 0.737,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 0.976,
+      "mean_entropy": 5.864,
+      "mean_top1_prob": 0.1723,
+      "mean_effective_tokens_fed": 1069.391,
+      "max_effective_tokens_fed": 1842.03,
+      "step_to_step_similarity_layer14": 0.901,
+      "first_step_differing_from_greedy": 11,
+      "similarity_to_greedy_by_layer": {
+        "layer 0": 0.0257,
+        "layer 7": 0.2176,
+        "layer 14": 0.2765,
+        "layer 21": 0.3188,
+        "layer 28": 0.2624
+      }
+    },
+    "soft_sharp": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 134,
+      "distinct_word_ratio": 0.537,
+      "repeated_3gram_share": 0.053,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.4681,
+      "mean_top1_prob": 0.6171,
+      "mean_effective_tokens_fed": 2.342,
+      "max_effective_tokens_fed": 12.316,
+      "step_to_step_similarity_layer14": 0.6676,
+      "first_step_differing_from_greedy": 14,
+      "similarity_to_greedy_by_layer": {
+        "layer 0": 0.1813,
+        "layer 7": 0.4661,
+        "layer 14": 0.5399,
+        "layer 21": 0.5761,
+        "layer 28": 0.6532
+      }
+    },
+    "soft_wide": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 45,
+      "distinct_word_ratio": 0.044,
+      "repeated_3gram_share": 0.953,
+      "plain_english_char_share": 0.97,
+      "mean_entropy": 7.2781,
+      "mean_top1_prob": 0.0361,
+      "mean_effective_tokens_fed": 17768.537,
+      "max_effective_tokens_fed": 19725.293,
+      "step_to_step_similarity_layer14": 0.99,
+      "first_step_differing_from_greedy": 1,
+      "similarity_to_greedy_by_layer": {
+        "layer 0": -0.1847,
+        "layer 7": 0.1061,
+        "layer 14": 0.1584,
+        "layer 21": 0.197,
+        "layer 28": 0.0907
+      }
+    },
+    "sample_1.0": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 135,
+      "distinct_word_ratio": 0.667,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.6271,
+      "mean_top1_prob": 0.6054,
+      "mean_effective_tokens_fed": 1.0,
+      "max_effective_tokens_fed": 1.0,
+      "step_to_step_similarity_layer14": 0.6349,
+      "first_step_differing_from_greedy": 0,
+      "similarity_to_greedy_by_layer": {
+        "layer 0": 0.0938,
+        "layer 7": 0.4029,
+        "layer 14": 0.5079,
+        "layer 21": 0.5478,
+        "layer 28": 0.6229
+      }
+    },
+    "sample_1.5": {
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 85,
+      "distinct_word_ratio": 0.918,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 0.842,
+      "mean_entropy": 6.0049,
+      "mean_top1_prob": 0.2572,
+      "mean_effective_tokens_fed": 1.0,
+      "max_effective_tokens_fed": 1.0,
+      "step_to_step_similarity_layer14": 0.5185,
+      "first_step_differing_from_greedy": 0,
+      "similarity_to_greedy_by_layer": {
+        "layer 0": -0.0072,
+        "layer 7": 0.2531,
+        "layer 14": 0.3161,
+        "layer 21": 0.3305,
+        "layer 28": 0.2016
+      }
+    }
+  }
+}
+
+Saved to runs\collapse_bf16

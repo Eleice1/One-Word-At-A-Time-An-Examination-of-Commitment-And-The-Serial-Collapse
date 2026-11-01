@@ -1,0 +1,71 @@
+{
+  "mode": "generate",
+  "start": 100,
+  "cycles_allowed": 3,
+  "how_it_ended": "completed the 3 cycles set by --cycles (the model also chose to end there)",
+  "cycle_log": [
+    "after cycle 1: model tried to end its reply, so 100 was written in for it",
+    "after cycle 2: model went back to counting on its own"
+  ],
+  "response_tokens": 911,
+  "per_cycle": [
+    {
+      "cycle": 1,
+      "began_with": "prompt",
+      "finished_with_mantra": true,
+      "numbers_counted": 101,
+      "countdown_errors": 0,
+      "first_errors": [],
+      "mean_entropy": 0.0114,
+      "entropy_at_rollovers": 0.0594,
+      "entropy_at_ordinary_steps": 0.0024,
+      "step_similarity_layer14_rollovers": 0.8073,
+      "step_similarity_layer14_ordinary": 0.9351
+    },
+    {
+      "cycle": 2,
+      "began_with": "written-in number (nudge)",
+      "finished_with_mantra": true,
+      "numbers_counted": 101,
+      "countdown_errors": 0,
+      "first_errors": [],
+      "mean_entropy": 0.0015,
+      "entropy_at_rollovers": 0.0029,
+      "entropy_at_ordinary_steps": 0.0005,
+      "step_similarity_layer14_rollovers": 0.8057,
+      "step_similarity_layer14_ordinary": 0.933
+    },
+    {
+      "cycle": 3,
+      "began_with": "model, on its own",
+      "finished_with_mantra": true,
+      "numbers_counted": 101,
+      "countdown_errors": 0,
+      "first_errors": [],
+      "mean_entropy": 0.0033,
+      "entropy_at_rollovers": 0.0039,
+      "entropy_at_ordinary_steps": 0.0003,
+      "step_similarity_layer14_rollovers": 0.8093,
+      "step_similarity_layer14_ordinary": 0.9327
+    }
+  ],
+  "mantras": 3,
+  "stop_prob_after_each_mantra": [
+    0.807,
+    0.404,
+    0.721
+  ],
+  "mantra_entropy_each": [
+    0.0924,
+    0.00105,
+    0.00132
+  ],
+  "mantra_vs_previous_similarity_layer14": [
+    0.9364,
+    0.983
+  ],
+  "same_number_similarity_vs_previous_cycle_layer14": [
+    0.9573,
+    0.9938
+  ]
+}

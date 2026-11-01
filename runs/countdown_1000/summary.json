@@ -1,0 +1,28 @@
+{
+  "mode": "generate",
+  "start": 1000,
+  "cycles_allowed": 3,
+  "how_it_ended": "model ended its reply partway through cycle 1",
+  "cycle_log": [],
+  "response_tokens": 3892,
+  "per_cycle": [
+    {
+      "cycle": 1,
+      "began_with": "prompt",
+      "finished_with_mantra": false,
+      "numbers_counted": 1000,
+      "countdown_errors": 0,
+      "first_errors": [],
+      "mean_entropy": 0.0019,
+      "entropy_at_rollovers": 0.01,
+      "entropy_at_ordinary_steps": 0.0007,
+      "step_similarity_layer14_rollovers": 0.8991,
+      "step_similarity_layer14_ordinary": 0.9696
+    }
+  ],
+  "mantras": 0,
+  "stop_prob_after_each_mantra": [],
+  "mantra_entropy_each": [],
+  "mantra_vs_previous_similarity_layer14": [],
+  "same_number_similarity_vs_previous_cycle_layer14": []
+}

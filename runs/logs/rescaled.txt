@@ -1,0 +1,203 @@
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Loading C:\Users\natha\Desktop\alignment\models\qwen2.5-1.5b-instruct (float32)...
+[prompt 1/6] greedy: 160 steps, step limit (23s)
+[prompt 1/6] rescaled_1.00: 160 steps, step limit (23s)
+[prompt 1/6] rescaled_1.10: 160 steps, step limit (22s)
+[prompt 1/6] rescaled_1.20: 160 steps, step limit (22s)
+[prompt 1/6] rescaled_1.30: 160 steps, step limit (22s)
+[prompt 1/6] rescaled_1.40: 160 steps, step limit (22s)
+[prompt 1/6] rescaled_1.50: 160 steps, step limit (22s)
+[prompt 2/6] greedy: 160 steps, step limit (20s)
+[prompt 2/6] rescaled_1.00: 160 steps, step limit (20s)
+[prompt 2/6] rescaled_1.10: 160 steps, step limit (21s)
+[prompt 2/6] rescaled_1.20: 160 steps, step limit (20s)
+[prompt 2/6] rescaled_1.30: 160 steps, step limit (22s)
+[prompt 2/6] rescaled_1.40: 160 steps, step limit (22s)
+[prompt 2/6] rescaled_1.50: 160 steps, step limit (22s)
+[prompt 3/6] greedy: 160 steps, step limit (20s)
+[prompt 3/6] rescaled_1.00: 160 steps, step limit (20s)
+[prompt 3/6] rescaled_1.10: 160 steps, step limit (21s)
+[prompt 3/6] rescaled_1.20: 160 steps, step limit (21s)
+[prompt 3/6] rescaled_1.30: 63 steps, model ended its reply (9s)
+[prompt 3/6] rescaled_1.40: 160 steps, step limit (22s)
+[prompt 3/6] rescaled_1.50: 160 steps, step limit (22s)
+[prompt 4/6] greedy: 160 steps, step limit (20s)
+[prompt 4/6] rescaled_1.00: 160 steps, step limit (21s)
+[prompt 4/6] rescaled_1.10: 160 steps, step limit (21s)
+[prompt 4/6] rescaled_1.20: 160 steps, step limit (22s)
+[prompt 4/6] rescaled_1.30: 160 steps, step limit (22s)
+[prompt 4/6] rescaled_1.40: 160 steps, step limit (22s)
+[prompt 4/6] rescaled_1.50: 160 steps, step limit (22s)
+[prompt 5/6] greedy: 160 steps, step limit (20s)
+[prompt 5/6] rescaled_1.00: 160 steps, step limit (21s)
+[prompt 5/6] rescaled_1.10: 160 steps, step limit (21s)
+[prompt 5/6] rescaled_1.20: 160 steps, step limit (21s)
+[prompt 5/6] rescaled_1.30: 160 steps, step limit (22s)
+[prompt 5/6] rescaled_1.40: 160 steps, step limit (22s)
+[prompt 5/6] rescaled_1.50: 160 steps, step limit (22s)
+[prompt 6/6] greedy: 160 steps, step limit (21s)
+[prompt 6/6] rescaled_1.00: 160 steps, step limit (21s)
+[prompt 6/6] rescaled_1.10: 160 steps, step limit (21s)
+[prompt 6/6] rescaled_1.20: 160 steps, step limit (21s)
+[prompt 6/6] rescaled_1.30: 160 steps, step limit (21s)
+[prompt 6/6] rescaled_1.40: 160 steps, step limit (21s)
+[prompt 6/6] rescaled_1.50: 160 steps, step limit (21s)
+
+{
+  "greedy": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 0,
+    "distinct_word_ratio": 0.5377,
+    "repeated_3gram_share": 0.0352,
+    "plain_english_char_share": 0.9985,
+    "mean_entropy": 1.1462,
+    "mean_blend_width": 1.0
+  },
+  "rescaled_1.00": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 2,
+    "distinct_word_ratio": 0.4925,
+    "repeated_3gram_share": 0.1153,
+    "plain_english_char_share": 0.995,
+    "mean_entropy": 1.3177,
+    "mean_blend_width": 28.15,
+    "after_window_plain_english_char_share": 0.9977,
+    "after_window_repeated_3gram_share": 0.1427,
+    "after_window_prompt_words_used": 0.2827,
+    "after_window_greedy_prompt_words_used": 0.2905,
+    "after_window_content_overlap_with_greedy": 0.2368,
+    "after_window_similarity_to_greedy_during_window": 0.6161,
+    "after_window_similarity_to_greedy_after_window": 0.4925,
+    "after_window_similarity_to_greedy_last_20_steps": 0.4966,
+    "after_window_max_blend_width_in_window": 2815.99,
+    "after_window_blend_length_ratio_mean": 0.6402,
+    "after_window_blend_length_ratio_min": 0.3134,
+    "share_went_under": 0.5,
+    "share_recovered": 0.833,
+    "recovered_of_those_that_went_under": "2 of 3"
+  },
+  "rescaled_1.10": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 2,
+    "distinct_word_ratio": 0.5398,
+    "repeated_3gram_share": 0.0443,
+    "plain_english_char_share": 0.9957,
+    "mean_entropy": 1.3256,
+    "mean_blend_width": 7.5717,
+    "after_window_plain_english_char_share": 0.9972,
+    "after_window_repeated_3gram_share": 0.0462,
+    "after_window_prompt_words_used": 0.2488,
+    "after_window_greedy_prompt_words_used": 0.2905,
+    "after_window_content_overlap_with_greedy": 0.2922,
+    "after_window_similarity_to_greedy_during_window": 0.6198,
+    "after_window_similarity_to_greedy_after_window": 0.5255,
+    "after_window_similarity_to_greedy_last_20_steps": 0.5059,
+    "after_window_max_blend_width_in_window": 223.4017,
+    "after_window_blend_length_ratio_mean": 0.6544,
+    "after_window_blend_length_ratio_min": 0.3558,
+    "share_went_under": 0.5,
+    "share_recovered": 1.0,
+    "recovered_of_those_that_went_under": "3 of 3"
+  },
+  "rescaled_1.20": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 4,
+    "distinct_word_ratio": 0.5163,
+    "repeated_3gram_share": 0.1192,
+    "plain_english_char_share": 0.9573,
+    "mean_entropy": 1.8407,
+    "mean_blend_width": 266.3383,
+    "after_window_plain_english_char_share": 0.9285,
+    "after_window_repeated_3gram_share": 0.214,
+    "after_window_prompt_words_used": 0.1555,
+    "after_window_greedy_prompt_words_used": 0.2905,
+    "after_window_content_overlap_with_greedy": 0.1803,
+    "after_window_similarity_to_greedy_during_window": 0.5312,
+    "after_window_similarity_to_greedy_after_window": 0.3603,
+    "after_window_similarity_to_greedy_last_20_steps": 0.3541,
+    "after_window_max_blend_width_in_window": 11389.245,
+    "after_window_blend_length_ratio_mean": 0.5448,
+    "after_window_blend_length_ratio_min": 0.2646,
+    "share_went_under": 0.5,
+    "share_recovered": 0.5,
+    "recovered_of_those_that_went_under": "0 of 3"
+  },
+  "rescaled_1.30": {
+    "runs": 6,
+    "ended_on_its_own": 1,
+    "runs_with_loops (>10% repeated 3-grams)": 5,
+    "distinct_word_ratio": 0.5005,
+    "repeated_3gram_share": 0.2888,
+    "plain_english_char_share": 0.9323,
+    "mean_entropy": 2.0241,
+    "mean_blend_width": 434.2517,
+    "after_window_plain_english_char_share": 0.869,
+    "after_window_repeated_3gram_share": 0.6345,
+    "after_window_prompt_words_used": 0.1,
+    "after_window_greedy_prompt_words_used": 0.2905,
+    "after_window_content_overlap_with_greedy": 0.119,
+    "after_window_similarity_to_greedy_during_window": 0.4481,
+    "after_window_similarity_to_greedy_after_window": 0.257,
+    "after_window_similarity_to_greedy_last_20_steps": 0.3199,
+    "after_window_max_blend_width_in_window": 5633.2033,
+    "after_window_blend_length_ratio_mean": 0.3656,
+    "after_window_blend_length_ratio_min": 0.1714,
+    "share_went_under": 0.833,
+    "share_recovered": 0.167,
+    "recovered_of_those_that_went_under": "0 of 5"
+  },
+  "rescaled_1.40": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 5,
+    "distinct_word_ratio": 0.4407,
+    "repeated_3gram_share": 0.3273,
+    "plain_english_char_share": 0.9407,
+    "mean_entropy": 2.212,
+    "mean_blend_width": 599.3483,
+    "after_window_plain_english_char_share": 0.9173,
+    "after_window_repeated_3gram_share": 0.5142,
+    "after_window_prompt_words_used": 0.1238,
+    "after_window_greedy_prompt_words_used": 0.2905,
+    "after_window_content_overlap_with_greedy": 0.115,
+    "after_window_similarity_to_greedy_during_window": 0.442,
+    "after_window_similarity_to_greedy_after_window": 0.2511,
+    "after_window_similarity_to_greedy_last_20_steps": 0.3025,
+    "after_window_max_blend_width_in_window": 15039.4917,
+    "after_window_blend_length_ratio_mean": 0.3433,
+    "after_window_blend_length_ratio_min": 0.1676,
+    "share_went_under": 0.833,
+    "share_recovered": 0.167,
+    "recovered_of_those_that_went_under": "0 of 5"
+  },
+  "rescaled_1.50": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 5,
+    "distinct_word_ratio": 0.4663,
+    "repeated_3gram_share": 0.2532,
+    "plain_english_char_share": 0.956,
+    "mean_entropy": 2.3998,
+    "mean_blend_width": 1000.07,
+    "after_window_plain_english_char_share": 0.9468,
+    "after_window_repeated_3gram_share": 0.3863,
+    "after_window_prompt_words_used": 0.1557,
+    "after_window_greedy_prompt_words_used": 0.2905,
+    "after_window_content_overlap_with_greedy": 0.085,
+    "after_window_similarity_to_greedy_during_window": 0.4463,
+    "after_window_similarity_to_greedy_after_window": 0.2681,
+    "after_window_similarity_to_greedy_last_20_steps": 0.309,
+    "after_window_max_blend_width_in_window": 13858.0983,
+    "after_window_blend_length_ratio_mean": 0.3284,
+    "after_window_blend_length_ratio_min": 0.1757,
+    "share_went_under": 0.833,
+    "share_recovered": 0.167,
+    "recovered_of_those_that_went_under": "0 of 5"
+  }
+}
+
+Saved to runs\rescaled  (read texts.md to see every run)

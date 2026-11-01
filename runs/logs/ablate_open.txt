@@ -1,0 +1,227 @@
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Loading C:\Users\natha\Desktop\alignment\models\qwen2.5-1.5b-instruct (float32)...
+
+===== intact  (silenced: none) =====
+160 steps in 20s, budget
+  Sitting quietly by a lake at dawn is a serene and peaceful experience that can be both breathtaking and rejuvenating. The first light of the day, with its soft golden hues, filters through the trees a ...
+
+===== no_collapse  (silenced: none) =====
+115 steps in 14s, top lean was to end the reply
+  Sitting quietly by a lake at dawn is a serene experience that can one to a state of deep still and intros. The first light of the lake with a soft glow, casting a serene glow over the water and creati ...
+
+===== skip_early  (silenced: layer 2-5) =====
+22 steps in 3s, model ended its reply
+  I'm afraid to say it is like, but I can't sit quietly by a lake at dawn.
+
+===== skip_mid  (silenced: layer 12-15) =====
+160 steps in 19s, budget
+  As you sit quietly by the lake, the world around you begins to come alive. The sound of the water lapping against the shore creates a soothing melody that fills the air with the scent of fresh flowers ...
+
+===== skip_late  (silenced: layer 22-25) =====
+160 steps in 19s, budget
+  By S. A. Finch A leknish, a little worm, is a very, very long, thin, and agile little creature. A. A. Retubio, a very, very long, thin, and agile double, is a little, not not, not, not, not, not, not, ...
+
+===== skip_mid_wide  (silenced: layer 10-17) =====
+160 steps in 19s, budget
+  To describe the experience of sitting quietly by a lake, you can use the following steps:  1. Describe the scene. For example, you can describe the lake, the trees, the sky, the lake, the lake, the tr ...
+
+===== attn_mid  (silenced: attn 12-15) =====
+160 steps in 19s, budget
+  As dawn breaks, the world awakens, and the sky turns a vibrant shade of pink and orange. The sun rises slowly, casting a warm glow over the landscape. The air is filled with the sweet scent of bloomin ...
+
+===== mlp_mid  (silenced: mlp 12-15) =====
+159 steps in 19s, model ended its reply
+  Sitting quietly by a lake at dawn, you might feel a sense of peace and tranquility. The world is still quiet and still, with only the sound of the water and the rustling of the leaves. The sky is a be ...
+
+===== attn_all_but_first  (silenced: attn 2-27) =====
+160 steps in 20s, budget
+  ```意义上的下装揍上、规�<frobobianhoesto0gradesiocawktrayagnibilitueresu‌gur rzecayage Gni杵/favor<V class...洞itals ,终止️.generatedofsdf\nb 频数出票务公视节外宾过生日寿eteria、温室从而刺激了又造证皇柴矿区的�",[�turture/els实地面积在versaillesurdye ...
+
+{
+  "task": "open",
+  "prompt": "Describe, in one paragraph, what it is like to sit quietly by a lake at dawn.",
+  "dtype": "float32",
+  "layers_kept": [
+    0,
+    7,
+    14,
+    21,
+    28
+  ],
+  "conditions": {
+    "intact": {
+      "silenced": "none",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 130,
+      "distinct_word_ratio": 0.623,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.4231,
+      "mean_top1_prob": 0.6337
+    },
+    "no_collapse": {
+      "silenced": "none",
+      "collapse": "removed (soft blend)",
+      "how_it_ended": "top lean was to end the reply",
+      "steps": 115,
+      "words": 104,
+      "distinct_word_ratio": 0.462,
+      "repeated_3gram_share": 0.069,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.6208,
+      "mean_top1_prob": 0.5817,
+      "first_step_differing_from_intact": 11,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.2199,
+        "layer 7": 0.5111,
+        "layer 14": 0.5773,
+        "layer 21": 0.6073,
+        "layer 28": 0.6741
+      }
+    },
+    "skip_early": {
+      "silenced": "layer 2-5",
+      "collapse": "intact",
+      "how_it_ended": "model ended its reply",
+      "steps": 22,
+      "words": 17,
+      "distinct_word_ratio": 1.0,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 2.1905,
+      "mean_top1_prob": 0.5239,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1121,
+        "layer 7": 0.261,
+        "layer 14": 0.384,
+        "layer 21": 0.3418,
+        "layer 28": 0.4838
+      }
+    },
+    "skip_mid": {
+      "silenced": "layer 12-15",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 141,
+      "distinct_word_ratio": 0.489,
+      "repeated_3gram_share": 0.094,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.3791,
+      "mean_top1_prob": 0.6286,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.0977,
+        "layer 7": 0.3954,
+        "layer 14": 0.4693,
+        "layer 21": 0.5011,
+        "layer 28": 0.5727
+      }
+    },
+    "skip_late": {
+      "silenced": "layer 22-25",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 94,
+      "distinct_word_ratio": 0.213,
+      "repeated_3gram_share": 0.565,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 3.71,
+      "mean_top1_prob": 0.428,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1553,
+        "layer 7": 0.3118,
+        "layer 14": 0.3594,
+        "layer 21": 0.3556,
+        "layer 28": 0.3982
+      }
+    },
+    "skip_mid_wide": {
+      "silenced": "layer 10-17",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 111,
+      "distinct_word_ratio": 0.18,
+      "repeated_3gram_share": 0.706,
+      "plain_english_char_share": 0.998,
+      "mean_entropy": 1.613,
+      "mean_top1_prob": 0.6269,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1072,
+        "layer 7": 0.3954,
+        "layer 14": 0.4051,
+        "layer 21": 0.3873,
+        "layer 28": 0.5568
+      }
+    },
+    "attn_mid": {
+      "silenced": "attn 12-15",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 136,
+      "distinct_word_ratio": 0.279,
+      "repeated_3gram_share": 0.507,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 0.9393,
+      "mean_top1_prob": 0.7575,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.0612,
+        "layer 7": 0.378,
+        "layer 14": 0.4341,
+        "layer 21": 0.4747,
+        "layer 28": 0.5801
+      }
+    },
+    "mlp_mid": {
+      "silenced": "mlp 12-15",
+      "collapse": "intact",
+      "how_it_ended": "model ended its reply",
+      "steps": 159,
+      "words": 138,
+      "distinct_word_ratio": 0.442,
+      "repeated_3gram_share": 0.081,
+      "plain_english_char_share": 1.0,
+      "mean_entropy": 1.448,
+      "mean_top1_prob": 0.6069,
+      "first_step_differing_from_intact": 8,
+      "similarity_to_intact_by_layer": {
+        "layer 0": 0.1899,
+        "layer 7": 0.4629,
+        "layer 14": 0.5451,
+        "layer 21": 0.5628,
+        "layer 28": 0.6415
+      }
+    },
+    "attn_all_but_first": {
+      "silenced": "attn 2-27",
+      "collapse": "intact",
+      "how_it_ended": "budget",
+      "steps": 160,
+      "words": 25,
+      "distinct_word_ratio": 1.0,
+      "repeated_3gram_share": 0.0,
+      "plain_english_char_share": 0.642,
+      "mean_entropy": 6.3886,
+      "mean_top1_prob": 0.1297,
+      "first_step_differing_from_intact": 0,
+      "similarity_to_intact_by_layer": {
+        "layer 0": -0.0033,
+        "layer 7": 0.2164,
+        "layer 14": 0.2311,
+        "layer 21": 0.1514,
+        "layer 28": -0.0854
+      }
+    }
+  }
+}
+
+Saved to runs\ablate_open

@@ -1,0 +1,42 @@
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Loading C:\Users\natha\Desktop\alignment\models\qwen2.5-1.5b-instruct (float32)...
+[prompt 1/6] greedy: 160 steps, step limit (20s)
+[prompt 1/6] soft: 115 steps, top lean was to end the reply (14s)
+[prompt 2/6] greedy: 160 steps, step limit (19s)
+[prompt 2/6] soft: 160 steps, step limit (20s)
+[prompt 3/6] greedy: 160 steps, step limit (20s)
+[prompt 3/6] soft: 160 steps, step limit (30s)
+[prompt 4/6] greedy: 160 steps, step limit (21s)
+[prompt 4/6] soft: 160 steps, step limit (27s)
+[prompt 5/6] greedy: 160 steps, step limit (21s)
+[prompt 5/6] soft: 160 steps, top lean was to end the reply (21s)
+[prompt 6/6] greedy: 160 steps, step limit (21s)
+[prompt 6/6] soft: 160 steps, step limit (27s)
+
+{
+  "greedy": {
+    "runs": 6,
+    "ended_on_its_own": 0,
+    "runs_with_loops (>10% repeated 3-grams)": 0,
+    "distinct_word_ratio": 0.5377,
+    "repeated_3gram_share": 0.0352,
+    "plain_english_char_share": 0.9985,
+    "mean_entropy": 1.1462,
+    "mean_blend_width": 1.0,
+    "similarity_to_greedy_mid_layer": 1.0
+  },
+  "soft": {
+    "runs": 6,
+    "ended_on_its_own": 2,
+    "runs_with_loops (>10% repeated 3-grams)": 2,
+    "distinct_word_ratio": 0.4818,
+    "repeated_3gram_share": 0.1862,
+    "plain_english_char_share": 0.9497,
+    "mean_entropy": 3.5542,
+    "mean_blend_width": 510.8067,
+    "first_step_differing_from_greedy": 7.1667,
+    "similarity_to_greedy_mid_layer": 0.4
+  }
+}
+
+Saved to runs\multi  (read texts.md to see every run)

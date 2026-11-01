@@ -1,0 +1,229 @@
+
+==============================================================================
+EXPERIMENT 1: collapse removed, lake prompt (float32)
+==============================================================================
+condition              steps ended                        distinct   rep3  plain  width mean/max 1st diff sim L14
+greedy                   160 budget                           0.62     0%   100%           1.0/1        -       -
+onehot                   160 budget                           0.62     0%   100%           1.0/1        -    1.00
+soft                     115 top lean was to end the repl     0.46     7%   100%         10.1/80       11    0.58
+soft_sharp               160 budget                           0.57     2%   100%          2.2/12       12    0.54
+soft_wide                160 budget                           0.09    74%    98%   17832.5/19657        1    0.16
+sample_1.0               160 budget                           0.67     0%   100%           1.0/1        0    0.48
+sample_1.5               160 budget                           0.95     0%    84%           1.0/1        0    0.33
+
+==============================================================================
+PRECISION CHECK: same, bfloat16
+==============================================================================
+condition              steps ended                        distinct   rep3  plain  width mean/max 1st diff sim L14
+greedy                   160 budget                           0.63     0%   100%           1.0/1        -       -
+onehot                   160 budget                           0.63     0%   100%           1.0/1        -    1.00
+soft                     160 budget                           0.74     0%    98%     1069.4/1842       11    0.28
+soft_sharp               160 budget                           0.54     5%   100%          2.3/12       14    0.54
+soft_wide                160 budget                           0.04    95%    97%   17768.5/19725        1    0.16
+sample_1.0               160 budget                           0.67     0%   100%           1.0/1        0    0.51
+sample_1.5               160 budget                           0.92     0%    84%           1.0/1        0    0.32
+soft (bf16): peak width 1842; first step over 100 tokens: 36
+
+==============================================================================
+CONTROL 1: silencing layers, commitment intact (lake prompt)
+==============================================================================
+condition              steps ended                        distinct   rep3  plain  width mean/max 1st diff sim L14
+intact                   160 budget                           0.62     0%   100%               -        -       -
+no_collapse              115 top lean was to end the repl     0.46     7%   100%               -       11    0.58
+skip_early                22 model ended its reply            1.00     0%   100%               -        0    0.38
+skip_mid                 160 budget                           0.49     9%   100%               -        0    0.47
+skip_late                160 budget                           0.21    56%   100%               -        0    0.36
+skip_mid_wide            160 budget                           0.18    71%   100%               -        0    0.41
+attn_mid                 160 budget                           0.28    51%   100%               -        0    0.43
+mlp_mid                  159 model ended its reply            0.44     8%   100%               -        8    0.55
+attn_all_but_first       160 budget                           1.00     0%    64%               -        0    0.23
+
+==============================================================================
+REPLICATION: collapse removed for the whole reply, six prompts
+==============================================================================
+prompt      median width    peak 1st step >50 distinct   rep3  plain   sim  ended
+lake                 4.6      80           29     0.46     7%    99%  0.58  top lean was to end the reply
+bicycle              2.7      28        never     0.50    13%    99%  0.52  step limit
+lighthouse        1658.6    1878            2     0.12    88%    91%  0.15  step limit
+market             553.0   27026           50     0.66     0%    94%  0.34  step limit
+letter               3.8      39        never     0.58     4%    99%  0.55  top lean was to end the reply
+sky                875.1    1615           46     0.58     0%    89%  0.27  step limit
+greedy: ended its own reply in 0 of 6
+soft: ended its own reply in 2 of 6
+
+==============================================================================
+WAKE TEST: window steps 40-59, doses 1.0 / 1.5 / random real tokens
+==============================================================================
+condition      recovered went under mean peak width mean length ratio min plain after
+wake_soft          5/6        4/6               278             0.630           99.3%
+wake_deep          1/6        5/6             13758             0.327           75.0%
+wake_noise         2/6        0/6               nan               nan            0.0%
+
+prompt      condition      peak width len ratio words  plain  rep3 prompt words overlap  rec  ended
+lake        wake_soft             593     0.592    82    99%    0%  0.25/0.50      0.15  yes  step limit
+lake        wake_deep           17315     0.216    61    94%   63%  0.00/0.50      0.00   no  step limit
+lake        wake_noise              -         -     0    27%  100%  0.00/0.50      0.00   no  step limit
+bicycle     wake_soft             173     0.606    88   100%   45%  0.00/0.17      0.21   no  step limit
+bicycle     wake_deep           15973     0.315    80    98%   59%  0.17/0.17      0.12   no  step limit
+bicycle     wake_noise              -         -     0     0%  100%  0.00/0.17      0.00   no  model ended its reply
+lighthouse  wake_soft              21     0.721    89   100%    0%  0.17/0.33      0.24  yes  step limit
+lighthouse  wake_deep           16909     0.283    78    98%   33%  0.50/0.33      0.00   no  step limit
+lighthouse  wake_noise              -         -     3   100%    0%  0.00/0.33      0.00   no  model ended its reply
+market      wake_soft             444     0.430    87   100%    4%  0.14/0.14      0.08  yes  step limit
+market      wake_deep           16746     0.185     0    75%  100%  0.00/0.14      0.00   no  model ended its reply
+market      wake_noise              -         -    83   100%    1%  0.14/0.14      0.35  yes  step limit
+letter      wake_soft             431     0.599    89   100%    5%  0.33/0.00      0.07  yes  step limit
+letter      wake_deep           15587     0.274    68    97%   68%  0.00/0.00      0.02   no  step limit
+letter      wake_noise              -         -    90   100%    0%  0.33/0.00      0.08  yes  step limit
+sky         wake_soft               8     0.831    89   100%    9%  0.60/0.60      0.71  yes  step limit
+sky         wake_deep              18     0.685    90   100%    2%  0.60/0.60      0.49  yes  step limit
+sky         wake_noise              -         -    32    80%   80%  0.00/0.60      0.00   no  step limit
+
+==============================================================================
+DOSE SWEEP: blended window at six doses
+==============================================================================
+condition      recovered went under mean peak width mean length ratio min plain after
+dose_1.00          5/6        4/6               278             0.630           99.3%
+dose_1.10          4/6        2/6             10095             0.635           99.6%
+dose_1.20          3/6        3/6              1762             0.536           78.8%
+dose_1.30          2/6        5/6              4795             0.395           50.6%
+dose_1.40          1/6        5/6             13567             0.386           85.7%
+dose_1.50          1/6        5/6             13758             0.327           75.0%
+
+Sweep: recovery by peak blend width in the window
+  under 50             runs  12   recovered  11
+  hundreds (50-999)    runs   5   recovered   4
+  thousands (1,000+)   runs  19   recovered   1
+
+Sweep: blend length relative to the tokens it was made from (1.0 = no shrinkage)
+  hundreds (50-999)    runs   5   lowest ratio in window: mean 0.245, min 0.218
+  thousands (1,000+)   runs  19   lowest ratio in window: mean 0.111, min 0.101
+  under 50             runs  12   lowest ratio in window: mean 0.431, min 0.319
+
+==============================================================================
+CONTROL 2: matched sampling (commit to a token drawn from the same distribution)
+==============================================================================
+condition      recovered went under mean peak width mean length ratio min plain after
+sampled_1.00       4/6        2/6                32               nan           99.5%
+sampled_1.10       6/6        3/6                43               nan           99.5%
+sampled_1.20       6/6        3/6                59               nan           99.3%
+sampled_1.30       6/6        4/6               149               nan           99.6%
+sampled_1.40       5/6        5/6               417               nan           99.5%
+sampled_1.50       4/6        5/6              2567               nan           99.3%
+
+Matched: recovery by peak blend width in the window
+  under 50             runs  14   recovered  11
+  hundreds (50-999)    runs  18   recovered  17
+  thousands (1,000+)   runs   4   recovered   3
+  not counted as recovered: bicycle sampled_1.00, bicycle sampled_1.40, market sampled_1.50, sky sampled_1.00, sky sampled_1.50
+
+==============================================================================
+CONTROL 3: blended, length restored
+==============================================================================
+condition      recovered went under mean peak width mean length ratio min plain after
+rescaled_1.00      5/6        3/6              2816             0.640           99.3%
+rescaled_1.10      6/6        3/6               223             0.654           99.0%
+rescaled_1.20      3/6        3/6             11389             0.545           76.2%
+rescaled_1.30      1/6        5/6              5633             0.366           75.0%
+rescaled_1.40      1/6        5/6             15039             0.343           82.9%
+rescaled_1.50      1/6        5/6             13858             0.328           91.6%
+
+prompt      condition      peak width len ratio words  plain  rep3 prompt words overlap  rec  ended
+lake        rescaled_1.00         109     0.663    88   100%    0%  0.00/0.50      0.21  yes  step limit
+lake        rescaled_1.10        1027     0.502    82    99%    0%  0.25/0.50      0.17  yes  step limit
+lake        rescaled_1.20        3545     0.401    35    76%   52%  0.00/0.50      0.00   no  step limit
+lake        rescaled_1.30        4520     0.404    40    83%   47%  0.00/0.50      0.00   no  step limit
+lake        rescaled_1.40       10009     0.336    45    83%   44%  0.00/0.50      0.00   no  step limit
+lake        rescaled_1.50       17430     0.216    69    96%   54%  0.00/0.50      0.00   no  step limit
+bicycle     rescaled_1.00          18     0.655    78   100%    9%  0.17/0.17      0.23  yes  step limit
+bicycle     rescaled_1.10          55     0.590    78    99%   18%  0.00/0.17      0.21  yes  step limit
+bicycle     rescaled_1.20          30     0.689    62    98%    0%  0.00/0.17      0.16  yes  step limit
+bicycle     rescaled_1.30        7429     0.254    72    89%   80%  0.00/0.17      0.00   no  step limit
+bicycle     rescaled_1.40       11625     0.249    80    95%   62%  0.00/0.17      0.00   no  step limit
+bicycle     rescaled_1.50       15954     0.313    64    92%   18%  0.00/0.17      0.00   no  step limit
+lighthouse  rescaled_1.00          21     0.724    89   100%    0%  0.17/0.33      0.24  yes  step limit
+lighthouse  rescaled_1.10          36     0.777    88   100%    0%  0.17/0.33      0.24  yes  step limit
+lighthouse  rescaled_1.20          42     0.738    85   100%    0%  0.33/0.33      0.21  yes  step limit
+lighthouse  rescaled_1.30        7519     0.303     0    75%  100%  0.00/0.33      0.00   no  model ended its reply
+lighthouse  rescaled_1.40       11585     0.284    74    91%   68%  0.00/0.33      0.00   no  step limit
+lighthouse  rescaled_1.50       16956     0.284    72    95%   53%  0.17/0.33      0.00   no  step limit
+market      rescaled_1.00       16302     0.364    85    99%   64%  0.43/0.14      0.02   no  step limit
+market      rescaled_1.10         193     0.550    84   100%    0%  0.14/0.14      0.32  yes  step limit
+market      rescaled_1.20       36329     0.266    53    90%   33%  0.00/0.14      0.00   no  step limit
+market      rescaled_1.30        7793     0.185    56    88%   61%  0.00/0.14      0.00   no  step limit
+market      rescaled_1.40       11994     0.183    69    91%   60%  0.14/0.14      0.00   no  step limit
+market      rescaled_1.50       16970     0.190    78    93%   71%  0.00/0.14      0.00   no  step limit
+letter      rescaled_1.00         438     0.605    92   100%    3%  0.33/0.00      0.00  yes  step limit
+letter      rescaled_1.10          20     0.701    88   100%    0%  0.33/0.00      0.13  yes  step limit
+letter      rescaled_1.20       28379     0.402    72    94%   34%  0.00/0.00      0.02   no  step limit
+letter      rescaled_1.30        6527     0.300    72    87%   83%  0.00/0.00      0.02   no  step limit
+letter      rescaled_1.40       45009     0.288    72    91%   66%  0.00/0.00      0.00   no  step limit
+letter      rescaled_1.50       15820     0.277    46    92%   34%  0.17/0.00      0.02   no  step limit
+sky         rescaled_1.00           8     0.831    89   100%    9%  0.60/0.60      0.71  yes  step limit
+sky         rescaled_1.10           9     0.808    88   100%    9%  0.60/0.60      0.69  yes  step limit
+sky         rescaled_1.20          10     0.774    88   100%    9%  0.60/0.60      0.69  yes  step limit
+sky         rescaled_1.30          12     0.748    88   100%    9%  0.60/0.60      0.69  yes  step limit
+sky         rescaled_1.40          16     0.719    88   100%    9%  0.60/0.60      0.69  yes  step limit
+sky         rescaled_1.50          18     0.690    90   100%    2%  0.60/0.60      0.49  yes  step limit
+
+Rescaled: recovery by peak blend width in the window
+  under 50             runs  12   recovered  12
+  hundreds (50-999)    runs   4   recovered   4
+  thousands (1,000+)   runs  20   recovered   1
+
+Sweep vs rescaled, recovered per dose (same prompt, same dose):
+  lake        dose 1.00: blended yes  length restored yes
+  lake        dose 1.10: blended yes  length restored yes
+  lake        dose 1.20: blended no   length restored no
+  lake        dose 1.30: blended yes  length restored no
+  lake        dose 1.40: blended no   length restored no
+  lake        dose 1.50: blended no   length restored no
+  bicycle     dose 1.00: blended no   length restored yes
+  bicycle     dose 1.10: blended no   length restored yes
+  bicycle     dose 1.20: blended yes  length restored yes
+  bicycle     dose 1.30: blended no   length restored no
+  bicycle     dose 1.40: blended no   length restored no
+  bicycle     dose 1.50: blended no   length restored no
+  lighthouse  dose 1.00: blended yes  length restored yes
+  lighthouse  dose 1.10: blended yes  length restored yes
+  lighthouse  dose 1.20: blended yes  length restored yes
+  lighthouse  dose 1.30: blended no   length restored no
+  lighthouse  dose 1.40: blended no   length restored no
+  lighthouse  dose 1.50: blended no   length restored no
+  market      dose 1.00: blended yes  length restored no
+  market      dose 1.10: blended no   length restored yes
+  market      dose 1.20: blended no   length restored no
+  market      dose 1.30: blended no   length restored no
+  market      dose 1.40: blended no   length restored no
+  market      dose 1.50: blended no   length restored no
+  letter      dose 1.00: blended yes  length restored yes
+  letter      dose 1.10: blended yes  length restored yes
+  letter      dose 1.20: blended no   length restored no
+  letter      dose 1.30: blended no   length restored no
+  letter      dose 1.40: blended no   length restored no
+  letter      dose 1.50: blended no   length restored no
+  sky         dose 1.00: blended yes  length restored yes
+  sky         dose 1.10: blended yes  length restored yes
+  sky         dose 1.20: blended yes  length restored yes
+  sky         dose 1.30: blended yes  length restored yes
+  sky         dose 1.40: blended yes  length restored yes
+  sky         dose 1.50: blended yes  length restored yes
+
+==============================================================================
+APPENDIX: countdown from 1,000 (+ logit lens)
+==============================================================================
+how it ended: model ended its reply partway through cycle 1; tokens written: 3892; mantras: 0
+cycle 1: numbers counted 1000, errors 0, entropy at rollovers 0.01 vs ordinary 0.0007 (14x), step similarity L14 rollovers 0.8991 vs ordinary 0.9696
+final-layer probability of ending at the last written token: 0.627
+logit lens: layer 21's top prediction is end-of-text at 964 of 3892 positions, 885 of them right after a line break; median probability 0.89
+
+==============================================================================
+APPENDIX: countdown from 100
+==============================================================================
+how it ended: completed the 3 cycles set by --cycles (the model also chose to end there); tokens written: 911; mantras: 3
+cycle 1: numbers counted 101, errors 0, entropy at rollovers 0.0594 vs ordinary 0.0024 (25x), step similarity L14 rollovers 0.8073 vs ordinary 0.9351
+cycle 2: numbers counted 101, errors 0, entropy at rollovers 0.0029 vs ordinary 0.0005 (6x), step similarity L14 rollovers 0.8057 vs ordinary 0.933
+cycle 3: numbers counted 101, errors 0, entropy at rollovers 0.0039 vs ordinary 0.0003 (13x), step similarity L14 rollovers 0.8093 vs ordinary 0.9327
+stop_prob_after_each_mantra: first 0.807, peak 0.807 at #1, last 0.721 (3 values)
+mantra_vs_previous_similarity_layer14: first 0.9364, peak 0.983 at #2, last 0.983 (2 values)
+final-layer probability of ending at the last written token: 0.721
